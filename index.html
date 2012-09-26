@@ -1,0 +1,787 @@
+
+
+<script src="/wcsstore/cmsassets/Boots/Library/Assets/Other/jquery/jquery-1.4.4.min.js/jquery-1.4.4.min.js" type="text/javascript"></script>
+
+<style type="text/css">
+
+	div.genericHTML ul {
+		margin-left:18px;
+	}
+	
+	div.contentHTML h3 {
+		color:#1F7B7A;
+	}
+
+#quizHeader {
+	background: url(/wcsstore/cmsassets/Boots/Library/Icon/Content%20/Health/000_2012/05_MAY/diabetes/dbq.jpg/dbq.jpg) no-repeat;
+	height: 76px;
+	width: 555px;
+}
+
+#quizHeader2 {
+	background: url(/wcsstore/cmsassets/Boots/Library/Icon/Content%20/Health/000_2012/05_MAY/diabetes/dbq.jpg/dbq.jpg) no-repeat;
+	height: 76px;
+	width: 555px;
+}
+
+
+.quizBody {
+	/*background: url(/wcsstore/cmsassets/Boots/Library/Icon/Content%20/Beauty/Valentines/Valentines-Border.png/Valentines-Border.png) repeat-y;*/
+	/*background: url(/wcsstore/cmsassets/Boots/Library/Assets/Image/Dan/Valentines/valentines2-body1/valentines2-body1.png) no-repeat;*/
+	background: url(/wcsstore/cmsassets/Boots/Library/Icon/Content%20/Beauty/Valentines/valentines3-body/valentines3-body.png) repeat-y;
+	width: 540px;
+	padding: 8px;
+	clear:both;
+}
+
+.quizBody2 {
+	/*background: url(/wcsstore/cmsassets/Boots/Library/Icon/Content%20/Beauty/Valentines/Valentines-Border.png/Valentines-Border.png) repeat-y;*/
+	/*background: url(/wcsstore/cmsassets/Boots/Library/Assets/Image/Dan/Valentines/valentines2-body2/valentines2-body2.png) repeat-y;*/
+	background: url(/wcsstore/cmsassets/Boots/Library/Icon/Content%20/Beauty/Valentines/valentines3-body/valentines3-body.png) repeat-y;
+	width: 535px;
+	padding: 10px;
+	clear:both;
+}
+
+#quizFooter {
+	/*background: url(/wcsstore/cmsassets/Boots/Library/Icon/Content%20/Beauty/Valentines/Valentines-Footer.png/Valentines-Footer.png) no-repeat;*/
+	/*background: url(/wcsstore/cmsassets/Boots/Library/Assets/Image/Dan/Valentines/valentines2-footer/valentines2-footer.png) no-repeat;*/
+	background: url(/wcsstore/cmsassets/Boots/Library/Icon/Content%20/Beauty/Valentines/valentines3-footer/valentines3-footer.png) no-repeat;
+	height: 45px;
+	width: 555px;
+}
+
+#Q1,#Q2,#Q3,#Q4,#Q5,
+#quizResults,
+#MostlyA,#MostlyB,#MostlyC,#MostlyD,
+.radioform,#resultsFooter,
+#q1s,#q2s,#q3s,#q4s,#q5s,#quizHeader2 {
+	display:none;
+}
+
+.clearMe {
+	clear:both;
+}
+
+
+
+
+.options{ margin:0px 0px 0px 0px; padding:0; }
+.options ul{ margin:0; padding:0; }
+
+.options li{
+	margin:0 0 5px 0;
+	padding:0;
+	list-style:none;
+	padding:0 0 0 52px;
+}
+
+.options li.active{
+	background: url(/wcsstore/cmsassets/Boots/Library/Icon/Content%20/Beauty/Valentines/tick.png/tick.png) no-repeat;
+	/*background:url('tick.png') no-repeat;*/
+}
+
+.options li a:hover, .options li a:link, .options li a:visited, .options li a:active {
+	text-decoration: none;
+	color: #000000;
+}
+
+.options li a p{
+	padding:2px 10px 0px 10px;	
+}
+
+a.option1,a.option2,a.option3,a.option4 { 
+	background: url(/wcsstore/cmsassets/Boots/Library/Icon/Content%20/Beauty/Valentines/questionoverlay.png/questionoverlay.png) no-repeat;
+	/*background:url('questionoverlay.png') no-repeat;*/
+}
+
+a.option1,  a.option2, a.option3, a.option4{
+	background-position:top;
+	display:block;
+	width:450px;
+	height:40px;
+	
+}
+
+a.option1:hover, a.option2:hover, a.option3:hover, a.option4:hover, .starts:hover, .submitButton:hover, .allButton:hover{
+	background-position:bottom;
+}
+
+.options li a.active{
+	background-position:bottom !important;
+}
+
+.submitButton {
+	background: url(/wcsstore/cmsassets/Boots/Library/Icon/Content%20/Beauty/Valentines/continue.png/continue.png) no-repeat;
+	/*background:url('continue.png') no-repeat;*/
+	background-position:top;
+	display:block;
+	width:144px;
+	height:40px;
+	margin:20px 0px 0px 0px;
+	float:right;
+}
+
+.allButton {
+	background: url(/wcsstore/cmsassets/Boots/Library/Icon/Content%20/Beauty/Valentines/allresults.png/allresults.png) no-repeat;
+	/*background:url('allresults.png') no-repeat;*/
+	background-position:top;
+	display:block;
+	width:169px;
+	height:40px;
+	margin:20px 0px 0px 0px;
+	float:right;
+}
+
+.starts {
+	background: url(/wcsstore/cmsassets/Boots/Library/Icon/Content%20/BeautyNew/_2011/_Feb/startagain.png/startagain.png) no-repeat;
+	/*background: url(/wcsstore/cmsassets/Boots/Library/Icon/Content%20/Beauty/Valentines/startover.png/startover.png) no-repeat;*/
+	/*background: url(/wcsstore/cmsassets/Boots/Library/Icon/Content%20/Beauty/Valentines/showall.png/showall.png) no-repeat;*/
+	/*background:url('startover.png') no-repeat;*/
+	background-position:top;
+	display:block;
+	width:160px;
+	height:40px;
+	margin:20px 0px 0px 0px;
+	float:left;
+}
+
+.resultsFooter {
+	clear:both;
+}
+
+.buttonHolder {
+	
+	height:52px;
+	margin:0px 0px 0px 0px;
+	
+
+}
+
+	.producttableheader {
+		background-color:#D0DAE7;	
+		-webkit-border-top-left-radius: 5px;
+		-webkit-border-top-right-radius: 5px;
+		-moz-border-radius-topleft: 5px;
+		-moz-border-radius-topright: 5px;
+		border-top-left-radius: 5px;
+		border-top-right-radius: 5px;	
+		border:1px solid #AAAAAA;
+		color:#3F4551;
+		font-weight:bold;
+		height:15px;
+		padding:5px 0px 5px 0px;
+		text-align:left;
+		width:530px;
+	}	
+	
+	.productmasterholder {
+	
+		-webkit-border-bottom-right-radius: 5px;
+		-webkit-border-bottom-left-radius: 5px;
+		-moz-border-radius-bottomright: 5px;
+		-moz-border-radius-bottomleft: 5px;
+		border-bottom-right-radius: 5px;
+		border-bottom-left-radius: 5px;	
+		border:1px solid #C3C3C3;
+		color:#3F4551;
+		font-weight:bold;
+		height:230px;		
+		width:520px;	
+	
+	}
+	
+	.productholder1, .productholder2 {
+		color:#FFFFFF;
+		font-weight:bold;
+		float:left;
+		padding:5px;
+		height:220px;		
+		width:168px;		
+		border-width:1px;
+		border-color:#C3C3C3;
+		border-style:none solid none none;
+	}	
+	
+	.productholder3 {
+		color:#FFFFFF;
+		float:left;
+		font-weight:bold;
+		padding:5px;
+		height:220px;		
+		width:167px;		
+	}		
+	
+	.display3 {
+		width:535px;
+	}	
+
+	.producttitle {
+		height:65px;
+		vertical-align:top;
+	}	
+
+	.productimg {
+		height:130px;
+		vertical-align:bottom;		
+	}
+	
+	.productdetails {
+		height:30px;
+		vertical-align:bottom;
+	}
+
+
+</style>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	$("#Q1").slideDown();
+	$("#loadingPrompt").slideUp();
+	
+	//var allQs = "#Q1,#Q2,#Q3,#Q4,#Q5,#quizResults,#MostlyA,#MostlyB,#MostlyC,#MostlyD";
+	
+	//$(allQs).slideUp();
+	//$('#quizResults,#MostlyA').slideDown();
+	
+	
+
+	$("#q1s").click(function(){
+		questions("Q1");
+	});
+	$("#q2s").click(function(){
+		questions("Q2");
+	});
+	$("#q3s").click(function(){
+		questions("Q3");
+	});
+	$("#q4s").click(function(){
+		questions("Q4");
+	});
+	$("#q5s").click(function(){
+		questions("Q5");
+	});
+	$("#alls").click(function(){
+		var truetest2 = $("#MostlyA").attr("style") + $("#MostlyB").attr("style") + $("#MostlyC").attr("style") + $("#MostlyD").attr("style");
+		//alert(truetest2);
+		if (truetest2 == "display: block;display: block;display: block;display: block;") {	
+		} else {
+			questions("All");
+		}
+		
+	});
+	$(".starts").click(function(){
+		var truetest1 = $("#Q1").attr("style");
+		if (truetest1 == "display: block;") {	
+		} else {
+			questions("Start");
+		}
+	});
+
+	$("a.starts,a.#q1s,a.#q2s,a.#q3s,a.#q4s,a.#q5s,a.#alls").live('click', function (event) {
+        event.preventDefault();
+    });
+	
+	
+	// ----- RADIO BUTTONS 1 ----
+	$("#list li > a").live('click', function (event) {
+        event.preventDefault();
+        $('#list .active').removeClass("active");
+        var id = this.id;
+        var newselect = id.replace('link', 'option');
+        $('#'+newselect).attr('checked', true);
+        $(this).addClass("active").parent().addClass("active");
+		$('#q1s').fadeIn();
+        return false;
+    });
+	
+	// ----- RADIO BUTTONS  2 ----
+	$("#list2 li > a").live('click', function (event) {
+        event.preventDefault();
+        $('#list2 .active').removeClass("active");
+        var id = this.id;
+        var newselect = id.replace('link', 'option');
+        $('#'+newselect).attr('checked', true);
+        $(this).addClass("active").parent().addClass("active");
+		$('#q2s').fadeIn();
+        return false;
+    });
+	
+	// ----- RADIO BUTTONS  3 ----
+	$("#list3 li > a").live('click', function (event) {
+        event.preventDefault();
+        $('#list3 .active').removeClass("active");
+        var id = this.id;
+        var newselect = id.replace('link', 'option');
+        $('#'+newselect).attr('checked', true);
+        $(this).addClass("active").parent().addClass("active");
+		$('#q3s').fadeIn();
+        return false;
+    });
+	
+	// ----- RADIO BUTTONS  4 ----
+	$("#list4 li > a").live('click', function (event) {
+        event.preventDefault();
+        $('#list4 .active').removeClass("active");
+        var id = this.id;
+        var newselect = id.replace('link', 'option');
+        $('#'+newselect).attr('checked', true);
+        $(this).addClass("active").parent().addClass("active");
+		$('#q4s').fadeIn();
+        return false;
+    });
+	
+	// ----- RADIO BUTTONS  5 ----
+	$("#list5 li > a").live('click', function (event) {
+        event.preventDefault();
+        $('#list5 .active').removeClass("active");
+        var id = this.id;
+        var newselect = id.replace('link', 'option');
+        $('#'+newselect).attr('checked', true);
+        $(this).addClass("active").parent().addClass("active");
+		$('#q5s').fadeIn();
+        return false;
+    });
+	
+	
+});
+
+function questions(open) {
+	
+
+	
+	var allQs = "#Q1,#Q2,#Q3,#Q4,#Q5,#quizResults,#MostlyA,#MostlyB,#MostlyC,#MostlyD,#resultsFooter";
+	
+	switch (open)
+	{
+	case "Q1":
+		$(allQs).slideUp();
+		$('#Q2').slideDown();
+		$('#quizHeader2').slideUp();
+		$('#quizHeader').slideDown();
+		break
+	case "Q2":
+		$(allQs).slideUp();
+		$('#Q3').slideDown();
+		$('#quizHeader2').slideUp();
+		$('#quizHeader').slideDown();
+		break
+	case "Q3":
+		$(allQs).slideUp();
+		$('#Q4').slideDown();
+		$('#quizHeader2').slideUp();
+		$('#quizHeader').slideDown();
+		break
+	case "Q4":
+		$(allQs).slideUp();
+		$('#Q5').slideDown();
+		$('#quizHeader2').slideUp();
+		$('#quizHeader').slideDown();
+		break
+	case "Q5":
+		$('#quizHeader').slideUp();
+		$('#quizHeader2').slideDown();
+		checkboxCount();
+		break
+		
+	case "Aa":
+		$(allQs).slideUp();
+		$('#quizResults,#MostlyA,#resultsFooter').slideDown();
+		$('#quizHeader').slideUp();
+		$('#quizHeader2').slideDown();
+		break
+	case "Ab":
+		$(allQs).slideUp();
+		$('#quizResults,#MostlyB,#resultsFooter').slideDown();
+		$('#quizHeader').slideUp();
+		$('#quizHeader2').slideDown();
+		break
+	case "Ac":
+		$(allQs).slideUp();
+		$('#quizResults,#MostlyC,#resultsFooter').slideDown();
+		$('#quizHeader').slideUp();
+		$('#quizHeader2').slideDown();
+		break
+	case "Ad":
+		$(allQs).slideUp();
+		$('#quizResults,#MostlyD,#resultsFooter').slideDown();
+		$('#quizHeader').slideUp();
+		$('#quizHeader2').slideDown();
+		break
+		
+	case "Aab":
+		$(allQs).slideUp();
+		$('#quizResults,#MostlyA,#MostlyB,#resultsFooter').slideDown();
+		$('#quizHeader').slideUp();
+		$('#quizHeader2').slideDown();
+		break
+	case "Aac":
+		$(allQs).slideUp();
+		$('#quizResults,#MostlyA,#MostlyC,#resultsFooter').slideDown();
+		$('#quizHeader').slideUp();
+		$('#quizHeader2').slideDown();
+		break
+	case "Aad":
+		$(allQs).slideUp();
+		$('#quizResults,#MostlyA,#MostlyD,#resultsFooter').slideDown();
+		$('#quizHeader').slideUp();
+		$('#quizHeader2').slideDown();
+		break
+	case "Abc":
+		$(allQs).slideUp();
+		$('#quizResults,#MostlyB,#MostlyC,#resultsFooter').slideDown();
+		$('#quizHeader').slideUp();
+		$('#quizHeader2').slideDown();
+		break
+	case "Abd":
+		$(allQs).slideUp();
+		$('#quizResults,#MostlyB,#MostlyD,#resultsFooter').slideDown();
+		$('#quizHeader').slideUp();
+		$('#quizHeader2').slideDown();
+		break
+	case "Acd":
+		$(allQs).slideUp();
+		$('#quizResults,#MostlyC,#MostlyD,#resultsFooter').slideDown();
+		$('#quizHeader').slideUp();
+		$('#quizHeader2').slideDown();
+		break
+		
+	case "All":
+		$(allQs).slideUp();
+		$('#quizResults,#MostlyA,#MostlyB,#MostlyC,#MostlyD,#resultsFooter').slideDown();
+		$('#quizHeader').slideUp();
+		$('#quizHeader2').slideDown();
+		break
+	case "Start":
+		$(allQs).slideUp();
+		$('#Q1').slideDown();
+		$('#quizHeader2').slideUp();
+		$('#quizHeader').slideDown();
+		break
+	}
+
+	
+	
+
+	
+};
+
+function checkboxCount() {
+
+		var answerA = $("#option1:checked,#option5:checked,#option9:checked,#option13:checked,#option17:checked").length;
+		var answerB = $("#option2:checked,#option6:checked,#option10:checked,#option14:checked,#option18:checked").length;
+		var answerC = $("#option3:checked,#option7:checked,#option11:checked,#option15:checked,#option19:checked").length;
+		var answerD = $("#option4:checked,#option8:checked,#option12:checked,#option16:checked,#option20:checked").length;
+
+		if (answerA == 1) {
+			var answerAs = "A";
+		} else if (answerA != 1) {
+			var answerAs = "As";
+		}
+		if (answerB == 1) {
+			var answerBs = "B";
+		} else if (answerB != 1) {
+			var answerBs = "Bs";
+		}
+		if (answerC == 1) {
+			var answerCs = "C";
+		} else if (answerC != 1) {
+			var answerCs = "Cs";
+		}
+		if (answerD == 1) {
+			var answerDs = "D";
+		} else if (answerD != 1) {
+			var answerDs = "Ds";
+		}
+
+		
+		//var answerAppend = "You answered " + answerA + " " + answerAs + ", " + answerB + " " + answerBs + ", " + answerC + " " + answerCs + " and " + answerD + " " + answerDs + ". ";
+		
+		var answerAppenda = "&nbsp;"
+		var answerAppendb = "&nbsp;"
+		var answerAppendc = "&nbsp;"
+		//var answerAppendd = "This means they're sexy and adventurous"
+		
+		var answerAppendab = "&nbsp;"
+		var answerAppendac = "&nbsp;"
+		//var answerAppendad = "This means they're an old romantic and they're sexy and adventurous"
+		
+		var answerAppendbc = "&nbsp;"
+		//var answerAppendbd = "This means they like the finer things in life and they're sexy and adventurous."
+		//var answerAppendcd = "This means they love to make the most of every second and they're sexy and adventurous."
+		
+		var answerAppendx = "&nbsp;"
+		
+		//$('#quizType').html("<p><b>" + answerAppend + answerAppendbd + answerAppendx + "</b></p>");
+		
+		if (answerA >= 3) {
+		var answerAppend = "";
+		$('#quizType').html("<p><b>" + answerAppend + answerAppenda + answerAppendx + "</b></p>");
+		questions("Aa");
+		} else if (answerB >= 3) {
+		var answerAppend = "You answered mostly Bs. ";
+		$('#quizType').html("<p><b>" + answerAppend + answerAppendb + answerAppendx + "</b></p>");
+		questions("Ab");
+		} else if (answerC >= 3) {
+		var answerAppend = "You answered mostly Cs. ";
+		$('#quizType').html("<p><b>" + answerAppend + answerAppendc + answerAppendx + "</b></p>");
+		questions("Ac");
+		} else if (answerD >= 3) {
+		var answerAppend = "You answered mostly Ds. ";
+		$('#quizType').html("<p><b>" + answerAppend + answerAppendd + answerAppendx + "</b></p>");
+		questions("Ad");
+		
+		} else if (answerA == 2 && answerB == 2) {
+		var answerAppend = "You answered mostly As and Bs. ";
+		$('#quizType').html("<p><b>" + answerAppend + answerAppendab + answerAppendx + "</b></p>");
+		questions("Aab");
+		} else if (answerA == 2 && answerC == 2) {
+		var answerAppend = "You answered mostly As and Cs. ";
+		$('#quizType').html("<p><b>" + answerAppend + answerAppendac + answerAppendx + "</b></p>");
+		questions("Aac");
+		} else if (answerA == 2 && answerD == 2) {
+		var answerAppend = "You answered mostly As and Ds. ";
+		$('#quizType').html("<p><b>" + answerAppend + answerAppendad + answerAppendx + "</b></p>");
+		questions("Aad");
+		
+		} else if (answerB == 2 && answerC == 2) {
+		var answerAppend = "You answered mostly Bs and Cs. ";
+		$('#quizType').html("<p><b>" + answerAppend + answerAppendbc + answerAppendx + "</b></p>");
+		questions("Abc");
+		} else if (answerB == 2 && answerD == 2) {
+		var answerAppend = "You answered mostly Bs and Ds. ";
+		$('#quizType').html("<p><b>" + answerAppend + answerAppendbd + answerAppendx + "</b></p>");
+		questions("Abd");
+		} else if (answerC == 2 && answerD == 2) {
+		var answerAppend = "You answered mostly Cs and Ds. ";
+		$('#quizType').html("<p><b>" + answerAppend + answerAppendcd + answerAppendx + "</b></p>");
+		questions("Acd");
+		
+		} else if (answerA == 2 && answerB == 1 && answerC == 1 && answerD == 1) {
+		var answerAppend = "You answered mostly As. ";
+		$('#quizType').html("<p><b>" + answerAppend + answerAppenda + answerAppendx + "</b></p>");
+		questions("Aa");
+		} else if (answerA == 1 && answerB == 2 && answerC == 1 && answerD == 1) {
+		var answerAppend = "You answered mostly Bs. ";
+		$('#quizType').html("<p><b>" + answerAppend + answerAppendb + answerAppendx + "</b></p>");
+		questions("Ab");
+		} else if (answerA == 1 && answerB == 1 && answerC == 2 && answerD == 1) {
+		var answerAppend = "You answered mostly Cs. ";
+		$('#quizType').html("<p><b>" + answerAppend + answerAppendc + answerAppendx + "</b></p>");
+		questions("Ac");
+		} else if (answerA == 1 && answerB == 1 && answerC == 1 && answerD == 2) {
+		var answerAppend = "You answered mostly Ds. ";
+		$('#quizType').html("<p><b>" + answerAppend + answerAppendd + answerAppendx + "</b></p>");
+		questions("Ad");
+		}
+}
+</script>
+
+<div class="genericHTML">
+
+<div id="quizHeader">
+
+	&nbsp;
+</div>
+
+<div id="quizHeader2">
+
+	&nbsp;
+</div>
+
+<div style="display: none;" id="loadingPrompt" class="quizBody">
+	<center><h3>Please wait... loading quiz...</h3></center>
+</div>
+
+
+
+
+<div style="display: block;" id="Q1" class="quizBody">
+	<div class="options">
+	
+	<br><center><h3>Question 1</h3></center>
+	
+		<ul id="list">
+			<li><a href="#" class="option1" id="link1"><p><b>A.</b> ...</p></a></li>
+			<li><a href="#" class="option2" id="link2"><p><b>B.</b> ...</p></a></li>
+			<li><a href="#" class="option3" id="link3"><p><b>C.</b> ...</p></a></li>
+		</ul>
+
+	</div>
+
+	<form id="radioform1" class="radioform">
+		Option 1: <input name="option1" value="option1" id="option1" type="radio"><br>
+		Option 2: <input name="option1" value="option2" id="option2" type="radio"><br>  
+		Option 3: <input name="option1" value="option3" id="option3" type="radio"><br>
+	</form>
+
+	<div class="buttonHolder">
+
+		<a href="#" id="q1s" class="submitButton"></a>
+		<a href="#" class="starts"></a>
+	</div>
+
+</div>
+
+
+
+<div id="Q2" class="quizBody">
+	<div class="options">
+	
+	<br><center><h3>Question 2</h3></center>
+	
+  		<ul id="list2">
+			<li><a href="#" class="option1" id="link5"><p><b>A.</b> </p></a></li>
+			<li><a href="#" class="option2" id="link6"><p><b>B.</b> </p></a></li>
+			<li><a href="#" class="option3" id="link7"><p><b>C.</b> </p></a></li>
+		</ul>
+	</div>
+
+	<form id="radioform2" class="radioform">
+		Option 1: <input name="option1" value="option5" id="option5" type="radio"><br>
+		Option 2: <input name="option1" value="option6" id="option6" type="radio"><br>  
+		Option 3: <input name="option1" value="option7" id="option7" type="radio"><br>
+	</form>
+
+	<div class="buttonHolder">
+		<a href="#" id="q2s" class="submitButton"></a>
+		<a href="#" class="starts"></a>
+	</div>
+</div>
+
+<div id="Q3" class="quizBody">
+	<div class="options">
+	
+	<br><center><h3>Question 3</h3></center>
+	
+		<ul id="list3">
+			<li><a href="#" class="option1" id="link9"><p><b>A.</b> ...</p></a></li>
+			<li><a href="#" class="option2" id="link10"><p><b>B.</b> ...</p></a></li>
+			<li><a href="#" class="option3" id="link11"><p><b>C.</b> ...</p></a></li>
+		</ul>
+	</div>
+
+	<form id="radioform3" class="radioform">
+		Option 1: <input name="option1" value="option9" id="option9" type="radio"><br>
+		Option 2: <input name="option1" value="option10" id="option10" type="radio"><br>  
+		Option 3: <input name="option1" value="option11" id="option11" type="radio"><br>
+	</form>
+
+	<div class="buttonHolder">
+		<a href="#" id="q3s" class="submitButton"></a>
+		<a href="#" class="starts"></a>
+	</div>
+
+</div>
+
+<div id="Q4" class="quizBody">
+	<div class="options">
+
+	<br><center><h3>Question 4</h3></center>
+
+		<ul id="list4">
+			<li><a href="#" class="option1" id="link13"><p><b>A.</b> ...</p></a></li>
+			<li><a href="#" class="option2" id="link14"><p><b>B.</b> ...</p></a></li>
+			<li><a href="#" class="option3" id="link15"><p><b>C.</b> ...</p></a></li>
+		</ul>
+	</div>
+
+	<form id="radioform3" class="radioform">
+		Option 1: <input name="option1" value="option13" id="option13" type="radio"><br>
+		Option 2: <input name="option1" value="option14" id="option14" type="radio"><br>  
+		Option 3: <input name="option1" value="option15" id="option15" type="radio"><br>
+	</form>
+
+	<div class="buttonHolder">
+		<a href="#" id="q4s" class="submitButton"></a>
+		<a href="#" class="starts"></a>
+	</div>
+
+</div>
+
+<div id="Q5" class="quizBody">
+	<div class="options">
+	
+	<br><center><h3>Question 5</h3></center>
+	
+	
+		<ul id="list5">
+			<li><a href="#" class="option1" id="link17"><p><b>A.</b> ...</p></a></li>
+			<li><a href="#" class="option2" id="link18"><p><b>B.</b> ...</p></a></li>
+			<li><a href="#" class="option3" id="link19"><p><b>C.</b> ...</p></a></li>
+		</ul>
+	</div>
+
+	<form id="radioform4" class="radioform">
+		Option 1: <input name="option1" value="option17" id="option17" type="radio"><br>
+		Option 2: <input name="option1" value="option18" id="option18" type="radio"><br>  
+		Option 3: <input name="option1" value="option19" id="option19" type="radio"><br>
+	</form>
+
+	<div class="buttonHolder">
+		<a href="#" id="q5s" class="submitButton"></a>
+		<a href="#" class="starts"></a>
+
+	</div>
+
+</div>
+
+
+<div id="quizResults" class="quizBody">
+<h3>Mostly As</h3>
+	<div id="quizType">
+
+	</div>
+
+</div>
+
+<div id="MostlyA" class="quizBody">
+
+	<div class="clearMe">
+	
+	<h3>Answer A</h3>
+
+<br style:"clear:both;" />
+	</div>
+</div>
+
+<div id="MostlyB" class="quizBody">
+
+	<div class="clearMe">
+
+	<h3>Mostly Bs</h3>
+
+	
+<br style:"clear:both;" />
+	</div>
+</div>
+
+
+<div id="MostlyC" class="quizBody">
+
+	<div class="clearMe">
+
+		<h3>Mostly Cs</h3>
+		
+		
+
+<br style:"clear:both;" />
+	</div>
+</div>
+
+
+<div id="resultsFooter" class="quizBody">
+	<div class="buttonHolder">
+		<a href="#" id="alls" class="allButton"></a>
+		<a href="#" class="starts"></a>
+	</div>
+</div>
+
+<div id="quizFooter">
+
+	&nbsp;
+
+</div>
+
+</div>
